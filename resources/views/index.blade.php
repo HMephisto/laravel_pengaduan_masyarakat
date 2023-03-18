@@ -5,9 +5,9 @@
     <title>{{ $title ?? '' }} Kami Peduli</title>
 
     <!-- Site favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ secure_asset('vendors/images/sitemap.png') }}" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ secure_asset('vendors/images/sitemap.png') }}" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ secure_asset('vendors/images/sitemap.png') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('vendors/images/sitemap.png') }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('vendors/images/sitemap.png') }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('vendors/images/sitemap.png') }}" />
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -16,13 +16,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ secure_asset('vendors/styles/core.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ secure_asset('vendors/styles/icon-font.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/styles/core.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/styles/icon-font.min.css') }}" />
     <link rel="stylesheet" type="text/css"
-        href="{{ secure_asset('src/plugins/datatables/css/dataTables.bootstrap4.min.css') }}" />
+        href="{{ asset('src/plugins/datatables/css/dataTables.bootstrap4.min.css') }}" />
     <link rel="stylesheet" type="text/css"
-        href="{{ secure_asset('src/plugins/datatables/css/responsive.bootstrap4.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href=" {{ secure_asset('vendors/styles/style.css') }} " />
+        href="{{ asset('src/plugins/datatables/css/responsive.bootstrap4.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href=" {{ asset('vendors/styles/style.css') }} " />
 
     <style>
         .lds-ellipsis {
@@ -101,7 +101,8 @@
     <div class="pre-loader">
         <div class="pre-loader-box">
             <div class="loader-logo">
-                <img src="{{ secure_asset('vendors/images/1.png') }}" alt="" width="220px" height="220px" style="margin:0; padding: 0"/>
+                <img src="{{ asset('vendors/images/1.png') }}" alt="" width="220px" height="220px"
+                    style="margin:0; padding: 0" />
             </div>
             {{-- <div class="loader-progress">
                 <div class="bar" id="bar1"></div>
@@ -122,45 +123,45 @@
         Activity Schedule
     </div> --}}
 
-    <script src=" {{ secure_asset('src/plugins/apexcharts/apexcharts.min.js') }}"></script>
+    <script src=" {{ asset('src/plugins/apexcharts/apexcharts.min.js') }}"></script>
 
     <!-- js -->
-    <script src="{{ secure_asset('vendors/scripts/core.js') }}"></script>
-    <script src="{{ secure_asset('vendors/scripts/script.min.js') }}"></script>
-    <script src="{{ secure_asset('vendors/scripts/process.js') }}"></script>
+    <script src="{{ asset('vendors/scripts/core.js') }}"></script>
+    <script src="{{ asset('vendors/scripts/script.min.js') }}"></script>
+    <script src="{{ asset('vendors/scripts/process.js') }}"></script>
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script> --}}
     {{-- <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script> --}}
 
-    {{-- <script src="{{ secure_asset('vendors/scripts/layout-settings.js') }}"></script> --}}
-    <script src="{{ secure_asset('src/plugins/datatables/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ secure_asset('src/plugins/datatables/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ secure_asset('src/plugins/datatables/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ secure_asset('src/plugins/datatables/js/responsive.bootstrap4.min.js') }}"></script>
+    {{-- <script src="{{ asset('vendors/scripts/layout-settings.js') }}"></script> --}}
+    <script src="{{ asset('src/plugins/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('src/plugins/datatables/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('src/plugins/datatables/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('src/plugins/datatables/js/responsive.bootstrap4.min.js') }}"></script>
     <!-- buttons for Export datatable -->
-    <script src="{{ secure_asset('src/plugins/datatables/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ secure_asset('src/plugins/datatables/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ secure_asset('src/plugins/datatables/js/buttons.print.min.js') }}"></script>
-    <script src="{{ secure_asset('src/plugins/datatables/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ secure_asset('src/plugins/datatables/js/buttons.flash.min.js') }}"></script>
-    <script src="{{ secure_asset('src/plugins/datatables/js/pdfmake.min.js') }}"></script>
-    <script src="{{ secure_asset('src/plugins/datatables/js/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('src/plugins/datatables/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('src/plugins/datatables/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('src/plugins/datatables/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('src/plugins/datatables/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('src/plugins/datatables/js/buttons.flash.min.js') }}"></script>
+    <script src="{{ asset('src/plugins/datatables/js/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('src/plugins/datatables/js/vfs_fonts.js') }}"></script>
 
-    <!-- Datatable Setting js -->
-    @stack('custom-scripts')
 
 
     {{-- <!-- DataTables JS -->
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
-    
-    <!-- pdfmake -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script> --}}
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
+        
+        <!-- pdfmake -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script> --}}
 
-    <script src="{{ secure_asset('vendors/scripts/datatable-setting.js') }}"></script>
+    <script src="{{ asset('vendors/scripts/datatable-setting.js') }}"></script>
 
-    <script src=" {{ secure_asset('vendors/scripts/dashboard3.js') }}"></script>
-    <script src=" {{ secure_asset('src/plugins/sweetalert2/sweetalert2.all.js') }}"></script>
-    <script src=" {{ secure_asset('src/plugins/sweetalert2/sweet-alert.init.js') }}"></script>
+    <script src=" {{ asset('vendors/scripts/dashboard3.js') }}"></script>
+    <script src=" {{ asset('src/plugins/sweetalert2/sweetalert2.all.js') }}"></script>
+    <script src=" {{ asset('src/plugins/sweetalert2/sweet-alert.init.js') }}"></script>
+    <!-- Datatable Setting js -->
+    @stack('custom-scripts')
 </body>
 
 </html>

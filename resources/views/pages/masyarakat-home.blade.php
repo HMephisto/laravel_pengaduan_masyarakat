@@ -14,7 +14,7 @@
             <div class="">
                 <h4 class="font-20 weight-500 mb-10 text-capitalize">
                     Welcome
-                    <div class="weight-600 font-30 text-blue">{{ auth()->user()->username }}</div>
+                    <div class="weight-600 font-30 text-blue">{{ auth()->user()->nama }}</div>
                 </h4>
                 <p class="font-18" align="justify">
                     Selamat datang di website pengaduan masyarakat! Kami senang Anda telah mengunjungi situs kami dan ingin

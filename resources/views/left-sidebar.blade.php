@@ -1,6 +1,6 @@
 <div class="left-side-bar" style="padding-top: 20px">
     <div class="brand-logo">
-        <a href="/">
+        <a href="#">
             {{-- <img src=" {{ asset('vendors/images/1.png') }}" alt="" class="dark-logo" /> --}}
             <img src=" {{ asset('vendors/images/2.png') }}" alt="" class="light-logo" style="padding"/> 
         </a>

@@ -73,7 +73,7 @@ $('document').ready(function () {
 				{ text: 'Data Pengaduan ' + status, style: 'header' },
 				{
 					table: {
-						widths: ['10%', '20%', '40%', '15%', '15%'],
+						widths: ['10%', '20%', '45%', '15%', '10%'],
 						body: [],
 					}
 				}
@@ -84,6 +84,11 @@ $('document').ready(function () {
 					bold: true,
 					margin: [0, 0, 0, 10]
 				}
+			},
+			defaultStyle: {
+				alignment: "justify",
+				margin: [0, 50, 0, 10],
+				lineBreak: "anywhere"
 			}
 		};
 		// Get the table header

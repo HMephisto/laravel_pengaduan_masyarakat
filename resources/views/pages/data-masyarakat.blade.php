@@ -45,7 +45,7 @@
                     style="margin-left: 15px; margin-bottom: 10px">Export to
                     PDF</button>
                 <div class="pb-20">
-                    <table class="table hover data-table-export nowrap" id="">
+                    <table class="table hover data-table-export nowrap" id="myTable">
                         <thead>
                             <tr>
                                 <th class="table-plus">NIK</th>

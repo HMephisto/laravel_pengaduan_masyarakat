@@ -18,7 +18,7 @@ class PetugasController extends Controller
     {
         $r->validate([
             'nama_petugas' => ['required'],
-            'username' => ['required'],
+            'username' => ['required', 'unique:petugas,username'],
             'password' => ['required'],
             'telp' => ['required'],
             'level' => ['required'],
@@ -32,13 +32,13 @@ class PetugasController extends Controller
         ]);
         return redirect('admin/petugas');
     }
-    
+
     public function update(Request $r, $id)
     {
         info($r);
         $r->validate([
             'nama_petugas' => ['required'],
-            'username' => ['required'],
+            'username' => ['required', 'unique:petugas,username,' . $id . ',id_petugas'],
             // 'password' => ['required'],
             'telp' => ['required'],
             'level' => ['required'],

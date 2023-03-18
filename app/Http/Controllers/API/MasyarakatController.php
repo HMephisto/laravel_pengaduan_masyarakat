@@ -31,7 +31,7 @@ class MasyarakatController extends Controller
             'nik' => 'required',
             'judul_laporan' => 'required',
             'isi_laporan' => 'required',
-            'foto' => 'required|max:2048',
+            'foto' => 'required|max:2048|mimes:png,jpg|image',
         ]);
         $filename = time() . "-pengaduan." . $r['foto']->getClientOriginalExtension();
         Storage::disk('public')->putFileAs("images", $r['foto'], $filename);

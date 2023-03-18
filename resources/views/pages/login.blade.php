@@ -5,9 +5,9 @@
     <title>Login | Kami Peduli</title>
 
     <!-- Site favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ secure_asset('vendors/images/sitemap.png') }}" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ secure_asset('vendors/images/sitemap.png') }}" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ secure_asset('vendors/images/sitemap.png') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('vendors/images/sitemap.png') }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('vendors/images/sitemap.png') }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('vendors/images/sitemap.png') }}" />
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -109,14 +109,21 @@
             </div>
         </div>
     </div>
-    <button id="loginFail" onclick="saLoginFailed()" style="visibility: hidden">
-    </button>
     <script>
         function saLoginFailed() {
             swal({
                 type: 'error',
-                title: 'Login Failed!',
-                text: 'Username or Password is Incorrect!',
+                title: 'Login Gagal!',
+                text: 'Username atau Password salah!',
+            })
+        };
+    </script>
+    <script>
+        function saLoginSuccess() {
+            swal({
+                type: 'success',
+                title: 'Register Berhasil!',
+                text: 'Silahkan Login',
             })
         };
     </script>
@@ -131,9 +138,14 @@
     <script src=" {{ asset('src/plugins/sweetalert2/sweet-alert.init.js') }}"></script>
     @error('username')
         <script>
-            document.getElementById("loginFail").click();
+            saLoginFailed()
         </script>
     @enderror
+    @if (Session::has('success'))
+        <script>
+            saLoginSuccess()
+        </script>
+    @endif
 
 </body>
 

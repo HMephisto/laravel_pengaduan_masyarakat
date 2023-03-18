@@ -42,7 +42,8 @@
                     <h4 class="text-blue h4">Data Pengaduan {{ $title }}</h4>
                 </div>
                 @if (Auth::guard('petugass')->user()->level == 'admin')
-                    <button id="export-pdf-pengaduan" class="btn btn-primary" style="margin-left: 15px; margin-bottom: 10px">Export to
+                    <button id="export-pdf-pengaduan" class="btn btn-primary"
+                        style="margin-left: 15px; margin-bottom: 10px">Export to
                         PDF</button>
                 @endif
                 <div class="pb-20">
@@ -132,7 +133,13 @@
                                             <div class="modal-body text-center font-18">
                                                 <img src="{{ $m->foto }}" alt="" class="mb-30 text-center"
                                                     height="200px" width="400px" style="  border: 5px solid #555;">
-                                                <p>{{ $m->isi_laporan }}</p>
+                                                <p
+                                                    style="    white-space: normal;
+                                                overflow: auto;
+                                                line-break: anywhere;">
+                                                    {{ $m->isi_laporan }}
+
+                                                </p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">

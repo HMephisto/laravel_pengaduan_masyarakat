@@ -14,6 +14,7 @@ return new class extends Migration
      */
     public function up()
     {
+        DB::statement('DROP PROCEDURE IF EXISTS update_pengaduan_status;');
         DB::statement('CREATE PROCEDURE update_pengaduan_status(IN `idx` INT, IN `Statusx` ENUM("0", "Proses", "Selesai"))
         BEGIN
             UPDATE `pengaduans` SET `status` = `Statusx` WHERE id_pengaduan = `idx`;
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pengaduan_procedure');
+        DB::statement('DROP PROCEDURE IF EXISTS update_pengaduan_status;');
     }
 };

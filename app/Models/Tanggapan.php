@@ -15,4 +15,9 @@ class Tanggapan extends Model
         'id_petugas',
         'tgl_tanggapan',
     ];
+
+    public function petugas()
+    {
+        return $this->belongsTo(Petugas::class, 'id_petugas');
+    }
 }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id('id_pengaduan');
             $table->date('tgl_pengaduan');
             $table->char('nik', 16);
-            $table->string('title');
+            $table->string('judul_laporan');
             $table->text('isi_laporan');
             $table->string('foto');
             $table->enum('status', ['0', 'proses', 'selesai']);

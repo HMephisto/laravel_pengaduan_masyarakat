@@ -23,6 +23,6 @@ class RegisterController extends Controller
             'nama' => $r->name,
             'telp' => $r->telp,
         ]);
-        return redirect('login');
+        return redirect('login')->with("success", "Register berhasil");
     }
 }

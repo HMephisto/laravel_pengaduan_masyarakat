@@ -11,7 +11,7 @@ class PengaduanController extends Controller
 {
     public function getPengaduan()
     {
-        $pengaduan = Pengaduan::with('tanggapan')->where('nik', auth('masyarakats')->user()->nik)->get();
+        $pengaduan = Pengaduan::with('tanggapan.petugas')->where('nik', auth('masyarakats')->user()->nik)->get();
         info($pengaduan);
         return view('pages/pengaduan-saya', ['pengaduan' => $pengaduan]);
     }

@@ -5,9 +5,9 @@
     <title>Register | Kami Peduli</title>
 
     <!-- Site favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ secure_asset('vendors/images/sitemap.png') }}" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ secure_asset('vendors/images/sitemap.png') }}" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ secure_asset('vendors/images/sitemap.png') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('vendors/images/sitemap.png') }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('vendors/images/sitemap.png') }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('vendors/images/sitemap.png') }}" />
 
 
     <!-- Mobile Specific Metas -->
@@ -50,7 +50,7 @@
                             <form class="tab-wizard2 wizard-circle wizard" method="POST" action="/register"
                                 id="formRegister">
                                 @csrf
-                                <h5>Basic Account Credentials</h5>
+                                <h5>Informaasi dasar</h5>
                                 <section>
                                     <div class="form-wrap max-width-600 mx-auto">
                                         <div class="form-group row">
@@ -58,7 +58,14 @@
                                             <div class="col-sm-8">
                                                 <input type="text" class="form-control" name="nik" required
                                                     max="16" min="16" />
+
                                                 <div class="text-danger" style="visibility: hidden" id="nik">
+                                                    @if ($errors->has('nik'))
+                                                        <script>
+                                                            document.getElementById("nik").style.visibility = "visible"
+                                                        </script>
+                                                        nik sudah terdaftar
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -66,7 +73,14 @@
                                             <label class="col-sm-4 col-form-label">Username*</label>
                                             <div class="col-sm-8">
                                                 <input type="text" class="form-control" name="username" required />
+
                                                 <div class="text-danger" style="visibility: hidden" id="username">
+                                                    @if ($errors->has('username'))
+                                                        <script>
+                                                            document.getElementById("username").style.visibility = "visible"
+                                                        </script>
+                                                        username sudah terdaftar
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -83,14 +97,15 @@
                                             <div class="col-sm-8">
                                                 <input type="password" class="form-control" name="password_confirmation"
                                                     required />
-                                                <div class="text-danger" style="visibility: hidden" id="password_confirmation">
+                                                <div class="text-danger" style="visibility: hidden"
+                                                    id="password_confirmation">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </section>
                                 <!-- Step 2 -->
-                                <h5>Personal Information</h5>
+                                <h5>Informasi Pengguna</h5>
                                 <section>
                                     <div class="form-wrap max-width-600 mx-auto">
                                         <div class="form-group row">

@@ -239,4 +239,20 @@
                     </div>
                 </div>
             </div>
+            @push('custom-scripts')
+                <script>
+                    function saLoginError() {
+                        swal({
+                            type: 'error',
+                            title: 'username yang anda masukan sudah terdaftar!',
+                            text: 'harap coba lagi',
+                        })
+                    };
+                </script>
+                @error('username')
+                    <script>
+                        saLoginError()
+                    </script>
+                @enderror
+            @endpush
         @endsection

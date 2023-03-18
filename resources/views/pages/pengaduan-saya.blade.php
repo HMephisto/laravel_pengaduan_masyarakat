@@ -52,8 +52,9 @@
                                 <tr>
                                     <td class="table-plus">{{ $m->judul_laporan }}</td>
                                     <td>
-                                        <img src="{{ url('storage/images/' . $m->foto) }}" alt="" class="mb-30 text-center"
-                                            height="100px" width="100px" style="  border: 5px solid #555;">
+                                        <img src="{{ url('storage/images/' . $m->foto) }}" alt=""
+                                            class="mb-30 text-center" height="100px" width="100px"
+                                            style="  border: 5px solid #555;">
                                     </td>
                                     <td>{{ $m->isi_laporan }}</td>
                                     <td>{{ $m->tgl_pengaduan }}</td>
@@ -102,7 +103,7 @@
                                                 <img src="{{ url('storage/images/' . $m->foto) }}" alt=""
                                                     class="mb-30 text-center" height="200px" width="400px"
                                                     style="  border: 5px solid #555;">
-                                                <p>{{ $m->isi_laporan }}</p>
+                                                <p style="line-break: anywhere">{{ $m->isi_laporan }}</p>
                                             </div>
 
                                             <div class="modal-footer">
@@ -129,9 +130,13 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form method="POST"
-                                                    action="/pengaduan/tanggapan/{{ $m->id_pengaduan }}">
-                                                    @csrf
+                                                <form>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-12 col-md-4 col-form-label ">Ditanggapi oleh</label>
+                                                        <div class="col-sm-12 col-md-8">
+                                                            <textarea class="form-control" readonly name="tanggapan" rows="1" style="height: auto">{{ $m->tanggapan->petugas->nama_petugas ?? '' }}</textarea>
+                                                        </div>
+                                                    </div>
                                                     <div class="form-group row">
                                                         <label class="col-sm-12 col-md-4 col-form-label ">Tanggapan</label>
                                                         <div class="col-sm-12 col-md-8">
@@ -168,18 +173,23 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="POST" action="/home/masyarakat/pengaduan" enctype="multipart/form-data">
+                            <form method="POST" action="/home/masyarakat/pengaduan" enctype="multipart/form-data"
+                                onsubmit="return validateForm()">
                                 @csrf
                                 <div class="form-group row">
                                     <label class="col-sm-12 col-md-4 col-form-label">Judul Laporan</label>
                                     <div class="col-sm-12 col-md-8">
-                                        <input class="form-control" type="text" name="judul_laporan" required>
+                                        <input class="form-control" type="text" name="judul_laporan" required minlength="20" maxlength="40">
+                                        <div class="text-danger" style="visibility: hidden" id="judul_error">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-12 col-md-4 col-form-label ">Isi Laporan</label>
                                     <div class="col-sm-12 col-md-8">
-                                        <textarea class="form-control" name="isi_laporan" cols="30" rows="10" required></textarea>
+                                        <textarea class="form-control" name="isi_laporan" cols="30" rows="10" required minlength="100" maxlength="500"></textarea>
+                                        <div class="text-danger" style="visibility: hidden" id="isiError">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -187,9 +197,42 @@
                                     <div class="col-sm-12 col-md-8">
                                         {{-- <input type="file" class="custom-file-input">
                                         <label class="custom-file-label" style="margin: 0px 15px">Choose file</label> --}}
-                                        <input class="form-control" type="file" id="formFile" name="foto" required>
+                                        <input class="form-control" type="file" id="formFile" name="foto"
+                                            accept=".jpg, .png" required>
+                                        <div class="text-danger" style="visibility: hidden" id="fileError">
+                                        </div>
                                     </div>
                                 </div>
+                                @push('custom-scripts')
+                                    <script>
+                                        function validateForm() {
+                                            var fileName = document.getElementById('formFile').value.toLowerCase();
+                                            var size = document.getElementById("formFile").files[0].size;
+                                            // console.log("ukuran" +   bytesToSize(size));
+                                            if (!fileName.endsWith('.jpg') && !fileName.endsWith('.png')) {
+                                                document.getElementById("fileError").innerHTML = "Harap masukan gambar bertipe .png atau .jpg"
+                                                document.getElementById("fileError").style.visibility = "visible"
+                                                return false
+                                            } else if (size >= 2000000) {
+                                                document.getElementById("fileError").innerHTML = "Ukuran gambar harus dibawah 2 mb"
+                                                document.getElementById("fileError").style.visibility = "visible"
+                                                return false;
+                                            } else {
+                                                document.getElementById("fileError").innerHTML = ""
+                                                document.getElementById("fileError").style.visibility = "hidden"
+                                                return true;
+                                            }
+                                        }
+
+                                        // function bytesToSize(bytes) {
+                                        //     var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+                                        //     if (bytes == 0) return 'n/a';
+                                        //     var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+                                        //     if (i == 0) return bytes + ' ' + sizes[i];
+                                        //     return (bytes / Math.pow(1024, i)).toFixed(1) + ' ' + sizes[i];
+                                        // };
+                                    </script>
+                                @endpush
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">
